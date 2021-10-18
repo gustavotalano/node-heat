@@ -1,0 +1,7 @@
+{
+  "name": "node-heat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Gustavo Talano <gustavotalano@hotmail.com>",
+  "license": "MIT"
+}
