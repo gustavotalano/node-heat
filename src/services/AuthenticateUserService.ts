@@ -1,16 +1,17 @@
 import axios from 'axios';
 import prismaClient from '../prisma';
 import { sign } from 'jsonwebtoken';
+
 interface IAccessTokenResponse {
   access_token: string,
-}
+};
 
 interface IUserResponse {
   avatar_url: string,
   login: string,
   id: number,
   name: string,
-}
+};
 
 class AuthenticateUserService {
   async execute(code: string) {
@@ -71,4 +72,4 @@ class AuthenticateUserService {
   }
 }
 
-export { AuthenticateUserService }
+export { AuthenticateUserService };
