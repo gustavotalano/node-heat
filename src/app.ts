@@ -3,7 +3,7 @@ import express from 'express';
 import http from 'http';
 import cors from 'cors';
 
-// import { Server } from 'socket.io';
+import { Server } from 'socket.io';
 
 import { router } from './routes';
 
@@ -12,15 +12,15 @@ app.use(cors());
 
 const serverHttp = http.createServer(app);
 
-// const io = new Server(serverHttp, {
-//   cors: {
-//     origin: '*',
-//   },
-// });
+const io = new Server(serverHttp, {
+  cors: {
+    origin: '*',
+  },
+});
 
-// io.on('connection', (socket) => {
-//   console.log(`Usuário conectado ao socket ${socket.id}`);
-// });
+io.on('connection', (socket) => {
+  console.log(`Usuário conectado ao socket ${socket.id}`);
+});
 
 app.use(express.json());
 
@@ -39,4 +39,4 @@ app.get('/signin/callback', (request, response) => {
   return response.json(code);
 });
 
-export { serverHttp };
+export { serverHttp, io };
